@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "./components/Button";
 
 class App extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class App extends React.Component {
       population: "",
       region: "",
     };
+    this.getCountry = this.getCountry.bind(this);
   }
 
   componentDidMount() {
@@ -37,9 +39,29 @@ class App extends React.Component {
         console.log(err);
       });
   }
+  getCountry(e) {
+    let url =
+      "https://restcountries.com/v3.1/name/" +
+      e.target.dataset.country.toLowerCase();
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res[0].name.common);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
-    return <div>Hello1</div>;
+    return (
+      <div>
+        <h1>Country selector</h1>
+        <Button onClick={this.getCountry} children={"France"}></Button>
+        <Button onClick={this.getCountry} children={"Brazil"}></Button>
+        <Button onClick={this.getCountry} children={"Croatia"}></Button>
+      </div>
+    );
   }
 }
 
