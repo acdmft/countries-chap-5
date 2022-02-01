@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "./components/Button";
+import Card from "./components/Card";
 
 class App extends React.Component {
   constructor() {
@@ -46,7 +47,7 @@ class App extends React.Component {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res[0].name.common);
+        console.log(typeof res[0].flag);
       })
       .catch((err) => {
         console.log(err);
@@ -55,11 +56,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="text-center">
         <h1>Country selector</h1>
-        <Button onClick={this.getCountry} children={"France"}></Button>
-        <Button onClick={this.getCountry} children={"Brazil"}></Button>
-        <Button onClick={this.getCountry} children={"Croatia"}></Button>
+        <div className="d-flex justify-content-around w-50 mx-auto">
+          <Button onClick={this.getCountry} children={"France"}></Button>
+          <Button onClick={this.getCountry} children={"Brazil"}></Button>
+          <Button onClick={this.getCountry} children={"Croatia"}></Button>
+
+        </div>
+        <Card
+          flag={this.state.flag}
+          name={this.state.name}
+          region={this.state.region}
+          capital={this.state.capital}
+          population={this.state.population}
+        ></Card>
       </div>
     );
   }
