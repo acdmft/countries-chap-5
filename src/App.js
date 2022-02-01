@@ -47,7 +47,13 @@ class App extends React.Component {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        console.log(typeof res[0].flag);
+        this.setState({
+          name: res[0].name.common,
+          capital: res[0].capital,
+          flag: res[0].flag,
+          population: res[0].population,
+          region: res[0].region,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +68,6 @@ class App extends React.Component {
           <Button onClick={this.getCountry} children={"France"}></Button>
           <Button onClick={this.getCountry} children={"Brazil"}></Button>
           <Button onClick={this.getCountry} children={"Croatia"}></Button>
-
         </div>
         <Card
           flag={this.state.flag}
