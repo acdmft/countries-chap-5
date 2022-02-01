@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+## 01 - App.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Créez le state avec les clés suivantes :
+    - `name` : string vide
+    - `capital` : string vide
+    - `flag` : string vide
+    - `population` : string vide
+    - `region` : string vide
 
-## Available Scripts
+- Affichez chaque state dans le render
+- Avec la méthode `componentDidMount()`, faites un `fetch` vers l'url `https://restcountries.eu/rest/v2/name/france`
+- Une fois que vous avez reçu la réponse du serveur, mettez à jour le state avec les bonnes données
 
-In the project directory, you can run:
+## 02 - Bouton
 
-### `npm start`
+- Créez un composant `Button.js` qui recevra les props `children` et `onClick`
+- Appelez le bouton dans `App.js` 3 fois en haut du render avec les noms France, Brazil et Croatia
+- Toujours dans `App.js`, écrivez la méthode `getCountry` avec le paramètre `country` et qui exécute un `fetch` vers une url qui sera complétée par le paramètre `country`. Comme dans le `componentDidMount`, la méthode met à jour le state avec les données reçues.
+- Envoyez cette méthode dans les props `onClick` de vos boutons, avec le bon paramètre !
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<aside>
+💡 Pour l'url : réutilisez une partie de l'url du `fetch` dans `componentDidMount()` !
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</aside>
 
-### `npm test`
+## 03 - Card
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Créez un composant `Card.js` qui recevra toutes les clés du state de `App.js` en props, et qui les affichera comme dans l'image
+- Dans `App.js`, remplacez la partie du render qui appelle le state par le composant `Card`
 
-### `npm run build`
+## 4 - Back is back!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Reprenez votre API du ***Projet Fullstack***, et lancez le serveur.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Maintenant on revient au **front end**! Dans votre projet **countries de react**, modifiez vos requêtes `fetch` pour qu'elle cible notre API qu'on vient de créer à la place de celle qu'on utilisait
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 5 - Style
 
-### `npm run eject`
+- Utilisez Bootstrap pour rendre votre page propre, et utilisez du CSS pour ajouter votre touche perso / des animations !
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Bonus
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Remplacez les boutons par une search bar (input texte + bouton) pour rendre le tout plus flexible et moderne !
